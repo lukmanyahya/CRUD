@@ -15,9 +15,9 @@
  <a class="navbar-brand" href="#">Home</a>
  </div>
     <div class="jumbotron">
-        <a class="btn btn-primary btn-lg" href="/products" 
+        <a class="btn btn-primary" href="/products" 
         role="button">Browse product</a>
-        <a class="btn btn-primary btn-lg" href="/category.index" 
+        <a class="btn btn-primary" href="/categories" 
         role="button">Browse Category</a>
     </div>
 
