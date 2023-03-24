@@ -16,9 +16,11 @@
  </div>
     <div class="jumbotron">
         <a class="btn btn-primary" href="/products" 
-        role="button">Browse product</a>
+        role="button">Product</a>
         <a class="btn btn-primary" href="/categories" 
-        role="button">Browse Category</a>
+        role="button">Category</a>
+        <a class="btn btn-primary" href="/carts" 
+        role="button">Cart</a>
     </div>
 
 @endsection

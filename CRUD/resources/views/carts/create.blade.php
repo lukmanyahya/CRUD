@@ -9,10 +9,10 @@
         </div>
     </div>
 
-    <form action="{{ route('cart.store') }}" method="POST">
+    <form action="{{ route('carts.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Quantity</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 value="{{ old('name') }}">
             @error('name')

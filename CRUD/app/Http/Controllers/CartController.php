@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -14,72 +15,63 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $carts = Cart::all();
+        return view('carts.index', compact('carts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('carts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        $product = Product::find($validatedData['product_id']);
+
+        $cart = new Cart();
+        $cart->product_id = $product->id;
+        $cart->quantity = $validatedData['quantity'];
+        $cart->total_price = $product->price * $validatedData['quantity'];
+        $cart->save();
+
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cart $cart)
+    public function show($id)
     {
-        //
+        $cart = Cart::find($id);
+        return view('carts.show', compact('carts'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
+    public function edit($id)
     {
-        //
+        $cart = Cart::find($id);
+        return view('carts.edit', compact('carts'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, $id)
     {
-        //
+        $cart = Cart::find($id);
+
+        $cart->product_id = $request->get('product_id');
+        $cart->quantity = $request->get('quantity');
+        $cart->total_price = $request->get('total_price');
+
+        $cart->save();
+
+        return redirect('/carts')->with('success', 'Cart has been updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        //
+        $cart = Cart::find($id);
+        $cart->delete();
+
+        return redirect('/carts')->with('success', 'Cart has been deleted');
     }
 }
