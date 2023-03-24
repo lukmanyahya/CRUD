@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->longText('description');
-            // $table->foreign('category_id');
-            // $table->foreignId('category_id')->on('id')->references('categories');
             $table->timestamps();
         });
     }

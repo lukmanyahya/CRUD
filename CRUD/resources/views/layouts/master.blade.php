@@ -10,4 +10,4 @@
    <h1>@yield('content')</h1>
 </body>
 </html>
-<marquee direction="">LUKMAN YAHYA SAPUTRA</marquee>
+<marquee direction=""><font color="blue" size="100">LUKMAN YAHYA SAPUTRA</marquee>
