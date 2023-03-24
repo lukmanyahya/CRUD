@@ -22,6 +22,8 @@ class CartController extends Controller
     public function create()
     {
         return view('carts.create');
+        $cart = new Cart(); 
+        return view('carts.create', compact('product','carts'));
     }
 
     public function store(Request $request)
