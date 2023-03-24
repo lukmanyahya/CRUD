@@ -3,9 +3,13 @@
 @section('title', 'Create Product')
 
 @section('content')
+<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
     <div class="row mb-4">
         <div class="col-md-6">
-            <h1>Create Product</h1>
+            <h1>Add Product</h1>
         </div>
         <div class="col-md-6 text-right">
             <a href="{{ route('products.index') }}" class="btn btn-secondary">Back</a>
@@ -46,6 +50,6 @@
             <label for="price">Price</label>
             <input type="text" name="price" id="price" class="form-control" value="{{ old('price') }}">
         </div>
-        <button type="submit" class="btn btn-primary">Create Product</button>
+        <button type="submit" class="btn btn-primary">Add Product</button>
     </form>
 @endsection

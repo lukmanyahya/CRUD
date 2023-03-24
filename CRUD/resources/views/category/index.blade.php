@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table" border="10">
         <thead>
             <tr>
                 <th>Name</th>
@@ -24,7 +24,7 @@
                 <tr>
                     <td>{{ $category->name }}</td>
                     <td>
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-sm btn-secondary">Show</a>
+                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-sm btn-warning">Show</a>
                         <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST"
                             style="display: inline-block;">
