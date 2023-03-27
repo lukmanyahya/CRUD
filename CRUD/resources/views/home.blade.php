@@ -12,7 +12,11 @@
  <div class="container-fluid">
  <!-- Brand and toggle get grouped for better mobile display -->
 
- <a class="navbar-brand" href="#">Home</a>
+ <a class="navbar-brand">Home</a>
+ <div class="container mt-5">
+        <marquee direction="right"><h1 class="display-4">
+             {{ auth()->user()->name }}
+        </h1></marquee>
  </div>
     <div class="jumbotron">
         <a class="btn btn-primary" href="/products" 
@@ -22,5 +26,8 @@
         <a class="btn btn-primary" href="/carts" 
         role="button">Cart</a>
     </div>
+    <form action="/logout" method="POST">
+            @csrf
+    <button class="btn btn-danger" href="/">Logout</button>
 
 @endsection
