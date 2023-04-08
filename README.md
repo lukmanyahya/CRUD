@@ -11,3 +11,4 @@ Masukan email & password yang sudah terdaftar
 klik login
 Muncul tampilan awal (home)
 Terdapat 3 pilihan (Produk, Category, Cart)
+Bingung
